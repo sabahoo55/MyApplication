@@ -20,27 +20,31 @@ public class MainFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
     //    Register Controller
-        TextView textView = getView().findViewById(R.id.txtNewRegister);
-textView.setOnClickListener(new View.OnClickListener() {
-
-    @Override
-    public void onClick(View view) {
-
-    //    Replace
-        getActivity().getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.contentMainFragment, new RegisterFragment())
-                .addToBackStack(null)
-                .commit();
-
-
-
-    }//onclick
-});
+        registerController();
 
 
 
     }// Main Class
+
+    private void registerController() {
+        TextView textView = getView().findViewById(R.id.txtNewRegister);
+        textView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+            //    Replace
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentMainFragment, new RegisterFragment())
+                        .addToBackStack(null)
+                        .commit();
+
+
+
+            }//onclick
+        });
+    }
 
     @Nullable
     @Override

@@ -32,9 +32,10 @@
 
         <!--TextField-->
         <EditText
+            android:id="@+id/editName"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
-            android:hint="@string/user"
+            android:hint="@string/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -56,9 +57,10 @@
 
         <!--TextField-->
         <EditText
+            android:id="@+id/edituser"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
-            android:hint="@string/pass"
+            android:hint="@string/user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -80,9 +82,10 @@
 
         <!--TextField-->
         <EditText
+            android:id="@+id/editpass"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
-            android:hint="@string/user"
+            android:hint="@string/pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
