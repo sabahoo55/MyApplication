@@ -5,8 +5,21 @@ package sst.pracha.myapplication.utility;
  */
 
 public class MyConstant {
-//    about
-private  String urlPostUserString="http://androidthai.in.th/sst/addDataBee.php";
+//    about URL
+private  String urlPostUserString = "http://androidthai.in.th/sst/addDataBee.php";
+private  String urlGetUserString = "http://androidthai.in.th/sst/getAllDataBee.php";
+
+//About Array
+
+    private String[] userColumnStrings = new String[]{"id", "Name", "User", "Password"};
+
+    public String[] getUserColumnStrings() {
+        return userColumnStrings;
+    }
+
+    public String getUrlGetUserString() {
+        return urlGetUserString;
+    }
 
     public String getUrlPostUserString() {
         return urlPostUserString;
