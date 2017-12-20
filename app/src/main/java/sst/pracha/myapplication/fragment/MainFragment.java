@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import sst.pracha.myapplication.R;
 import sst.pracha.myapplication.utility.GetDataFromServer;
 import sst.pracha.myapplication.utility.MyAlerDialog;
@@ -66,6 +69,23 @@ public class MainFragment extends Fragment{
 
                         String jsonString = getDataFromServer.get();
                         Log.d(tag, "JSON ==> " + jsonString);
+                        boolean status = true;
+                        String[] columnStrings = myConstant.getUserColumnStrings();
+                        String[] lohinStrings = new String[columnStrings.length];
+
+                        JSONArray jsonArray = new JSONArray(jsonString);
+                        for (int i=0; i<jsonArray.length(); i+=1){
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            if (userString.equals(jsonObject.getString(columnStrings[2]))) {
+                                status = false;
+                                for (int i1 =0; i1<columnStrings.length; i1+=1) {
+                                    lohinStrings[i1] = jsonObject.getString(columnStrings[i1]);
+                                }   //for
+
+
+                            }   //if
+
+                        }//for
 
 
 
