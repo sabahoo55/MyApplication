@@ -23,7 +23,7 @@ import sst.pracha.myapplication.utility.MyAlerDialog;
 public class RegisterFragment extends Fragment {
 
     //explicit
-private String nameString,userString,passString;
+    private String nameString,userString,passString;
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -50,9 +50,9 @@ private String nameString,userString,passString;
         EditText userEditText = getView().findViewById(R.id.edituser);
         EditText passEditText = getView().findViewById(R.id.editpass);
 //Get Value From EditText
-nameString = nameEditText.getText().toString().trim();
-userString = userEditText.getText().toString().trim();
-     passString = passEditText.getText().toString().trim();
+        nameString = nameEditText.getText().toString().trim();
+        userString = userEditText.getText().toString().trim();
+        passString = passEditText.getText().toString().trim();
         //Check Space
         if (nameString.isEmpty() ||userString.isEmpty() || passString.isEmpty()  ) {
             MyAlerDialog myAlerDialog = new MyAlerDialog(getActivity());
