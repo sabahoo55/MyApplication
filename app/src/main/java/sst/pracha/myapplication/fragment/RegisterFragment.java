@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,10 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sst.pracha.myapplication.MainActivity;
 import sst.pracha.myapplication.R;
 import sst.pracha.myapplication.utility.MyAlerDialog;
+import sst.pracha.myapplication.utility.MyConstant;
+import sst.pracha.myapplication.utility.PostUserToServer;
 
 /**
  * Created by pracha on 14/12/2560.
@@ -61,9 +65,38 @@ public class RegisterFragment extends Fragment {
             //Have Space
 
         } else {
-
             //No space
-        }
+
+            try {
+
+                MyConstant myConstant = new MyConstant();
+                String tag = "20DecV1";
+                PostUserToServer postUserToServer = new PostUserToServer(getActivity());
+                postUserToServer.execute(nameString, userString, passString,
+                        myConstant.getUrlPostUserString());
+                String resultString = postUserToServer.get();
+                Log.d(tag, "Result ==>"+ resultString);
+
+                if (Boolean.parseBoolean(resultString)) {
+
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    Toast.makeText(getActivity(),"Upload New User Success",
+                             Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(getActivity(),"Upload New User Non Success",
+                            Toast.LENGTH_SHORT).show();
+
+
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+        }   //else
 
 
     }// saveController
